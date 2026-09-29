@@ -1,0 +1,308 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+<meta name="description" content="LKPD Interaktif Cloud Collaboration: Struktur Folder dan Hak Akses - Informatika Kelas 9 SMP Negeri 19 Kota Bekasi" />
+<meta name="theme-color" content="#0ea5e9" />
+<title>LKPD Interaktif · Cloud Collaboration: Struktur Folder dan Hak Akses</title>
+<link rel="icon" type="image/svg+xml" href="./favicon.svg" />
+<link rel="apple-touch-icon" href="./logo.png" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header class="app-header" id="appHeader">
+  <div class="header-left">
+    <img src="./logo.png" alt="Logo SMP Negeri 19 Kota Bekasi" class="logo" id="logoImg"
+         onerror="this.style.display='none';document.getElementById('logoFallback').style.display='flex';" />
+    <span class="logo-fallback" id="logoFallback" style="display:none;">19</span>
+    <div class="titles">
+      <h1 id="appTitle">LKPD Interaktif: Cloud Collaboration</h1>
+      <p class="subtitle" id="appSubtitle">Struktur Folder dan Hak Akses (Folder Structure &amp; Access Rights)</p>
+    </div>
+  </div>
+  <div class="header-right">
+    <div class="score-badge" title="Skor sementara">
+      <span class="score-label">Skor (Score)</span>
+      <span class="score-value" id="scoreValue">0</span>
+    </div>
+  </div>
+</header>
+
+<!-- ================= PROGRESS BAR ================= -->
+<nav class="progress-bar" aria-label="Kemajuan Level">
+  <button class="progress-step" data-step="1" type="button">
+    <span class="step-num">1</span><span class="step-text">Nama Berkas</span>
+  </button>
+  <button class="progress-step" data-step="2" type="button">
+    <span class="step-num">2</span><span class="step-text">Struktur Folder</span>
+  </button>
+  <button class="progress-step" data-step="3" type="button">
+    <span class="step-num">3</span><span class="step-text">Hak Akses</span>
+  </button>
+  <button class="progress-step" data-step="4" type="button">
+    <span class="step-num">4</span><span class="step-text">Detektif Akses</span>
+  </button>
+</nav>
+
+<!-- ================= MAIN ================= -->
+<main class="app-main" id="appMain">
+
+  <!-- ---------- SCREEN: START ---------- -->
+  <section class="screen active" id="screen-start">
+    <div class="card hero-card">
+      <div class="hero-emoji">☁️📁🔐</div>
+      <h2>Selamat Datang, Detektif Awan! <span class="en">(Welcome, Cloud Detective!)</span></h2>
+      <p class="lead">
+        Kamu akan menyelesaikan <strong>4 misi</strong> untuk menata ruang kerja awan
+        <em>(cloud workspace)</em> dan mengatur hak akses <em>(access rights)</em> dengan aman.
+      </p>
+
+      <div class="mission-grid">
+        <div class="mission-chip">
+          <span class="chip-icon">🏷️</span>
+          <strong>Misi 1</strong>
+          <span>Perbaiki Nama Berkas <em>(Fix File Names)</em></span>
+        </div>
+        <div class="mission-chip">
+          <span class="chip-icon">🌳</span>
+          <strong>Misi 2</strong>
+          <span>Susun Struktur Folder <em>(Build Folder Structure)</em></span>
+        </div>
+        <div class="mission-chip">
+          <span class="chip-icon">🔑</span>
+          <strong>Misi 3</strong>
+          <span>Matriks Hak Akses <em>(Access Matrix)</em></span>
+        </div>
+        <div class="mission-chip">
+          <span class="chip-icon">🕵️</span>
+          <strong>Misi 4</strong>
+          <span>Detektif Akses <em>(Access Detective)</em></span>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <p><strong>💡 Prinsip Emas (Golden Rule):</strong> Beri Seperlunya <em>(Least Privilege)</em> —
+        berikan hak akses paling kecil yang masih cukup untuk menyelesaikan tugas.</p>
+        <p><strong>📌 Cara Main (How to Play):</strong> Kerjakan level secara berurutan. Setiap jawaban benar
+        bernilai <strong id="pointsHint">10</strong> poin. Progresmu otomatis tersimpan di perangkat ini.</p>
+      </div>
+
+      <div class="btn-row center">
+        <button class="btn btn-primary btn-lg" id="btnStart">Mulai (Start) ▶</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ---------- SCREEN: LEVEL 1 ---------- -->
+  <section class="screen" id="screen-l1">
+    <div class="card">
+      <div class="level-head">
+        <span class="level-tag">Misi 1 / Level 1</span>
+        <h2>🏷️ Perbaikan Nama Berkas <span class="en">(Fix File Names)</span></h2>
+        <p class="instruction">
+          <strong>Instruksi (Instruction):</strong> Ubah nama berkas berantakan menjadi nama yang baik
+          dengan pola <code>TAHUN-BULAN-TANGGAL_Topik_Pembuat_vNomor</code>.
+        </p>
+        <p class="pattern-hint">
+          Contoh: <code>2026-10-05_Proposal-Pensi_Rani_v2.docx</code>
+        </p>
+      </div>
+
+      <div id="l1List" class="l1-list"></div>
+
+      <div class="btn-row">
+        <button class="btn btn-primary" id="btnCheckL1">Periksa (Check) ✅</button>
+        <button class="btn btn-ghost" id="btnResetL1">Ulangi Misi 1 (Reset)</button>
+      </div>
+      <div class="level-feedback" id="l1Feedback"></div>
+    </div>
+  </section>
+
+  <!-- ---------- SCREEN: LEVEL 2 ---------- -->
+  <section class="screen" id="screen-l2">
+    <div class="card">
+      <div class="level-head">
+        <span class="level-tag">Misi 2 / Level 2</span>
+        <h2>🌳 Susun Struktur Folder <span class="en">(Build Folder Structure)</span></h2>
+        <p class="instruction">
+          <strong>Instruksi (Instruction):</strong> Tarik <em>(drag)</em> kartu ke tempat yang tepat.
+          Folder proyek masuk ke folder induk, sub-folder masuk ke dalam folder Dokumentasi,
+          dan berkas yang <strong>bukan bagian proyek</strong> dibuang ke kotak merah.
+        </p>
+      </div>
+
+      <div class="l2-layout">
+        <!-- ZONA TARGET -->
+        <div class="l2-zones">
+          <div class="tree">
+            <div class="tree-root-label">
+              <span class="folder-ico">📁</span> PENTAS_SENI_KELAS9_2026
+            </div>
+
+            <div class="drop-zone" data-zone="root" id="zoneRoot">
+              <div class="zone-hint">
+                <span>⬇ Letakkan folder utama di sini <em>(Drop main folders here)</em></span>
+              </div>
+              <div class="drop-list" id="listRoot"></div>
+            </div>
+
+            <div class="tree-nested">
+              <div class="tree-root-label small">
+                <span class="folder-ico">📁</span> 04_Dokumentasi
+              </div>
+              <div class="drop-zone" data-zone="dok" id="zoneDok">
+                <div class="zone-hint">
+                  <span>⬇ Letakkan isi Dokumentasi di sini <em>(Drop documentation sub-folders here)</em></span>
+                </div>
+                <div class="drop-list" id="listDok"></div>
+              </div>
+            </div>
+
+            <div class="drop-zone danger" data-zone="other" id="zoneOther">
+              <div class="zone-hint">
+                <span>❌ Bukan bagian proyek ini <em>(Not part of this project)</em></span>
+              </div>
+              <div class="drop-list" id="listOther"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- KOLAM KARTU -->
+        <div class="l2-pool-wrap">
+          <h3 class="pool-title">🎴 Kartu Tersedia <em>(Available Cards)</em></h3>
+          <div class="drop-zone pool" data-zone="pool" id="zonePool">
+            <div class="drop-list" id="listPool"></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn btn-primary" id="btnCheckL2">Periksa (Check) ✅</button>
+        <button class="btn btn-ghost" id="btnResetL2">Ulangi Misi 2 (Reset)</button>
+      </div>
+      <div class="level-feedback" id="l2Feedback"></div>
+    </div>
+  </section>
+
+  <!-- ---------- SCREEN: LEVEL 3 ---------- -->
+  <section class="screen" id="screen-l3">
+    <div class="card">
+      <div class="level-head">
+        <span class="level-tag">Misi 3 / Level 3</span>
+        <h2>🔑 Matriks Hak Akses <span class="en">(Access Matrix)</span></h2>
+        <p class="instruction">
+          <strong>Instruksi (Instruction):</strong> Pilih peran yang tepat untuk setiap orang pada setiap folder.
+          Ingat prinsip <em>Beri Seperlunya (Least Privilege)</em>. Satu baris dinilai benar jika
+          <strong>seluruh kolomnya tepat</strong>.
+        </p>
+      </div>
+
+      <div class="table-scroll">
+        <table class="matrix-table" id="matrixTable">
+          <thead>
+            <tr>
+              <th>Orang / Kelompok<br /><em>(Person / Group)</em></th>
+              <th>01_Proposal</th>
+              <th>02_Anggaran</th>
+              <th>03_Rundown</th>
+              <th>04_Dokumentasi</th>
+            </tr>
+          </thead>
+          <tbody id="matrixBody"></tbody>
+        </table>
+      </div>
+
+      <div class="legend-box">
+        <strong>Keterangan Peran (Role Legend):</strong>
+        <ul>
+          <li><strong>Pemilik (Owner)</strong> — Semua hak, termasuk menghapus permanen.</li>
+          <li><strong>Penyunting (Editor)</strong> — Boleh mengubah, menambah, menghapus isi.</li>
+          <li><strong>Pemberi Komentar (Commenter)</strong> — Boleh memberi saran, tidak boleh mengubah isi.</li>
+          <li><strong>Pelihat (Viewer)</strong> — Hanya boleh membaca.</li>
+          <li><strong>—</strong> — Tanpa akses.</li>
+        </ul>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn btn-primary" id="btnCheckL3">Periksa (Check) ✅</button>
+        <button class="btn btn-ghost" id="btnResetL3">Ulangi Misi 3 (Reset)</button>
+      </div>
+      <div class="level-feedback" id="l3Feedback"></div>
+    </div>
+  </section>
+
+  <!-- ---------- SCREEN: LEVEL 4 ---------- -->
+  <section class="screen" id="screen-l4">
+    <div class="card">
+      <div class="level-head">
+        <span class="level-tag">Misi 4 / Level 4</span>
+        <h2>🕵️ Detektif Akses <span class="en">(Access Detective)</span></h2>
+        <p class="instruction">
+          <strong>Instruksi (Instruction):</strong> Kelompok Garuda mengelola Bazar UMKM Kelas 9.
+          Periksa setiap folder di Drive mereka. Temukan <strong>masalahnya</strong> dan pilih
+          <strong>perbaikan</strong> yang tepat.
+        </p>
+      </div>
+
+      <div id="l4List" class="l4-list"></div>
+
+      <div class="btn-row">
+        <button class="btn btn-primary" id="btnCheckL4">Periksa (Check) ✅</button>
+        <button class="btn btn-ghost" id="btnResetL4">Ulangi Misi 4 (Reset)</button>
+      </div>
+      <div class="level-feedback" id="l4Feedback"></div>
+    </div>
+  </section>
+
+  <!-- ---------- SCREEN: RESULT ---------- -->
+  <section class="screen" id="screen-result">
+    <div class="card result-card">
+      <div class="hero-emoji" id="resultEmoji">🎉</div>
+      <h2 id="resultTitle">Selamat! (Congratulations!)</h2>
+      <p class="lead" id="resultMessage">Kamu telah menyelesaikan semua misi.</p>
+
+      <div class="final-score-box">
+        <div class="final-score-label">Skor Akhir (Final Score)</div>
+        <div class="final-score-value"><span id="finalScore">0</span><small id="finalMax">/ 0</small></div>
+        <div class="final-score-percent" id="finalPercent">0%</div>
+      </div>
+
+      <div class="breakdown" id="breakdown"></div>
+
+      <div class="btn-row center">
+        <button class="btn btn-primary" id="btnPrint">Cetak Hasil (Print) 🖨️</button>
+        <button class="btn btn-secondary" id="btnPlayAgain">Main Lagi (Play Again) 🔁</button>
+      </div>
+
+      <p class="signature">
+        Tanda tangan Guru / Orang Tua <em>(Teacher / Parent Signature)</em>:
+        <span class="sign-line"></span>
+      </p>
+    </div>
+  </section>
+
+</main>
+
+<!-- ================= FOOTER ================= -->
+<footer class="app-footer">
+  <div class="footer-inner">
+    <p class="footer-text" id="footerText">LKPD Informatika Kelas 9 · Cloud Collaboration: Struktur Folder dan Hak Akses · © 2026 SMP Negeri 19 Kota Bekasi</p>
+    <div class="footer-actions">
+      <button class="btn btn-mini btn-ghost" id="btnFinalScore">Skor Akhir (Final Score)</button>
+      <button class="btn btn-mini btn-danger" id="btnResetAll">Reset (Ulangi)</button>
+    </div>
+  </div>
+</footer>
+
+<!-- ================= TOAST ================= -->
+<div class="toast" id="toast" role="status" aria-live="polite"></div>
+
+<script src="script.js"></script>
+</body>
+</html>

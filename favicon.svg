@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="64" height="64" role="img" aria-label="Cloud Collaboration - Struktur Folder dan Hak Akses">
+  <defs>
+    <!-- Gradien langit untuk awan -->
+    <linearGradient id="cloudGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#38bdf8"/>
+      <stop offset="100%" stop-color="#0ea5e9"/>
+    </linearGradient>
+    <!-- Gradien folder kuning/emas -->
+    <linearGradient id="folderGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#fbbf24"/>
+      <stop offset="100%" stop-color="#f59e0b"/>
+    </linearGradient>
+    <!-- Gradien gembok hijau (aman) -->
+    <linearGradient id="lockGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399"/>
+      <stop offset="100%" stop-color="#10b981"/>
+    </linearGradient>
+    <!-- Bayangan lembut -->
+    <filter id="softShadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur in="SourceAlpha" stdDeviation="1.2"/>
+      <feOffset dx="0" dy="1.2" result="offsetblur"/>
+      <feComponentTransfer>
+        <feFuncA type="linear" slope="0.28"/>
+      </feComponentTransfer>
+      <feMerge>
+        <feMergeNode/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+  </defs>
+
+  <!-- Latar belakang bulat dengan warna langit lembut -->
+  <rect x="0" y="0" width="64" height="64" rx="14" ry="14" fill="#e0f2fe"/>
+
+  <!-- ================= AWAN (Cloud) ================= -->
+  <g filter="url(#softShadow)">
+    <!-- Badan utama awan -->
+    <path fill="url(#cloudGrad)"
+          d="M20 26
+             a7 7 0 0 1 7 -7
+             a8 8 0 0 1 15 0
+             a7 7 0 0 1 7 7
+             a5 5 0 0 1 -1 9.8
+             l-26 0
+             a5 5 0 0 1 -2 -9.8 z"/>
+    <!-- Highlight kecil di awan -->
+    <ellipse cx="24" cy="24" rx="4" ry="2.4" fill="#ffffff" opacity="0.55"/>
+  </g>
+
+  <!-- ================= FOLDER (Map) ================= -->
+  <g filter="url(#softShadow)">
+    <!-- Tab folder (belakang) -->
+    <path fill="url(#folderGrad)" opacity="0.85"
+          d="M14 40 h10 l3 3 h23 a3 3 0 0 1 3 3 v10 a3 3 0 0 1 -3 3 h-36 a3 3 0 0 1 -3 -3 v-13 a3 3 0 0 1 3 -3 z"/>
+    <!-- Badan folder (depan) -->
+    <path fill="url(#folderGrad)"
+          d="M14 43 h36 a3 3 0 0 1 3 3 v9 a3 3 0 0 1 -3 3 h-36 a3 3 0 0 1 -3 -3 v-9 a3 3 0 0 1 3 -3 z"/>
+    <!-- Highlight folder -->
+    <path fill="#ffffff" opacity="0.28"
+          d="M14 43 h36 a3 3 0 0 1 3 3 v1 h-42 v-1 a3 3 0 0 1 3 -3 z"/>
+  </g>
+
+  <!-- ================= GEMBOK (Lock) ================= -->
+  <g filter="url(#softShadow)" transform="translate(40 30)">
+    <!-- Badan gembok -->
+    <rect x="0" y="6" width="14" height="11" rx="2.4" fill="url(#lockGrad)"/>
+    <!-- Lengkungan gembok -->
+    <path fill="none" stroke="#059669" stroke-width="2.4" stroke-linecap="round"
+          d="M3 6 v-2.4 a4 4 0 0 1 8 0 v2.4"/>
+    <!-- Lubang kunci -->
+    <circle cx="7" cy="11.2" r="1.6" fill="#065f46"/>
+    <rect x="6.2" y="11.2" width="1.6" height="3" rx="0.8" fill="#065f46"/>
+  </g>
+</svg>
